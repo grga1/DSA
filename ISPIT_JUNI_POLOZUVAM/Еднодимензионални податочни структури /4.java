@@ -78,67 +78,67 @@ import java.util.*;
 class Student{
     String ime;
     String prezime;
-    int nauka;
-    int naucnaFantastika;
-    int istorija;
+    int prilozi_dokumenti;
+    int index;
+    int dokumenti_od_sredno;
 
-    public Student(String ime, String prezime, int nauka, int naucnaFantastika, int istorija) {
+    public Student(String ime, String prezime, int prilozi_dokumenti, int index, int dokumenti_od_sredno) {
         this.ime = ime;
         this.prezime = prezime;
-        this.nauka = nauka;
-        this.naucnaFantastika = naucnaFantastika;
-        this.istorija = istorija;
+        this.prilozi_dokumenti = prilozi_dokumenti;
+        this.index = index;
+        this.dokumenti_od_sredno = dokumenti_od_sredno;
     }
 }
 public class Main {
     public static void main(String[] args) {
       Scanner scanner = new Scanner(System.in);
-       Queue<Student> Nauka = new LinkedList<>();
-       Queue<Student> NaucnaFantastika = new LinkedList<>();
-       Queue<Student> Istorija = new LinkedList<>();
+       Queue<Student> Dokumenti = new LinkedList<>();
+       Queue<Student> Index = new LinkedList<>();
+       Queue<Student> Dokumenti_od_sredno = new LinkedList<>();
        int n = scanner.nextInt();
        for (int i = 0; i <n; i++) {
            String ime = scanner.next();
            String prezime = scanner.next();
-           int nauka = scanner.nextInt();
-           int naucnaFantastika =scanner.nextInt();
-           int istorija=scanner.nextInt();
-           Student s = new Student(ime,prezime,nauka,naucnaFantastika,istorija);
-           if (nauka==1){
-               Nauka.add(s);
-           }else if (naucnaFantastika==1){
-                NaucnaFantastika.add(s);
-           }else if(istorija==1){
-               Istorija.add(s);
+           int prilozi_dokumenti= scanner.nextInt();
+           int index =scanner.nextInt();
+           int dokumenti_od_sredno=scanner.nextInt();
+           Student s = new Student(ime,prezime,prilozi_dokumenti,index,dokumenti_od_sredno);
+           if (prilozi_dokumenti==1){
+               Dokumenti.add(s);
+           }else if (index==1){
+                Index.add(s);
+           }else if(dokumenti_od_sredno==1){
+               Dokumenti_od_sredno.add(s);
            }
         }
        LinkedList<Student> finished = new LinkedList<>();
 
 
-       while (!Nauka.isEmpty()||!NaucnaFantastika.isEmpty()||!Istorija.isEmpty()) {
+       while (!Dokumenti.isEmpty()||!Index.isEmpty()||!Dokumenti_od_sredno.isEmpty()) {
 
-           if(!Nauka.isEmpty()) {
-               Student s = Nauka.poll();
-               if (s.naucnaFantastika == 1) {
-                   NaucnaFantastika.add(s);
-               } else if (s.istorija == 1) {
-                   Istorija.add(s);
+           if(!Dokumenti.isEmpty()) {
+               Student s = Dokumenti.poll();
+               if (s.index == 1) {
+                   Index.add(s);
+               } else if (s.dokumenti_od_sredno == 1) {
+                   Dokumenti_od_sredno.add(s);
                } else {
                    finished.add(s);
                }
            }
-          
-           if(!NaucnaFantastika.isEmpty()) {
-               Student s = NaucnaFantastika.poll();
-               if (s.istorija == 1) {
-                   Istorija.add(s);
+
+           if(!Index.isEmpty()) {
+               Student s = Index.poll();
+               if (s.dokumenti_od_sredno == 1) {
+                   Dokumenti_od_sredno.add(s);
                } else {
                    finished.add(s);
                }
            }
-          
-           if(!Istorija.isEmpty()) {
-               Student s = Istorija.poll();
+
+           if(!Dokumenti_od_sredno.isEmpty()) {
+               Student s = Dokumenti_od_sredno.poll();
                finished.add(s);
            }
        }
