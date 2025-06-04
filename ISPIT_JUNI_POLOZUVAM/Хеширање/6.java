@@ -16,25 +16,7 @@
 
 import java.util.*;
 
-class Person{
-    String Ime;
-    String Prezime;
-    int Budget;
-    String Ip_adresa;
-    String Vreme;
-    String Grad;
-    int Cena;
 
-    public Person(String ime, String prezime, int budget,  String ip_adresa,String vreme, String grad, int cena) {
-        Ime = ime;
-        Prezime = prezime;
-        Budget = budget;
-        Vreme = vreme;
-        Ip_adresa = ip_adresa;
-        Grad = grad;
-        Cena = cena;
-    }
-}
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
